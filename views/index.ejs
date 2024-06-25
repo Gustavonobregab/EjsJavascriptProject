@@ -8,19 +8,60 @@
       body {
         font-family: Arial, sans-serif;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         height: 100vh;
         margin: 0;
-        background-color: rgb(41, 51, 51);
+        background-color: rgb(68, 68, 65);
       }
       .container {
         text-align: center;
+        width: 100%;
+        max-width: 600px;
       }
-      .item {
-        margin: 5px 0;
+      input {
+        padding: 10px;
+        font-size: 16px;
       }
     </style>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <h1 style="color: white">Quantity</h1>
+      <input
+        type="number"
+        id="quantity"
+        placeholder="Enter quantity"
+        style="width: 200px"
+        min="1"
+        max="10"
+      />
+      <button id="submitBtn">Enviar</button>
+    </div>
+
+    <div id="retangulos-container"></div>
+
+    <script>
+      function enviarNumero() {
+        var quantidade = parseInt(document.getElementById('quantity').value)
+
+        for (var i = 0; i < quantidade; i++) {
+          var item = document.createElement('div')
+          item.style.width = '100px'
+          item.style.height = '50px'
+          item.style.backgroundColor = 'blue'
+          item.style.marginBottom = '10px'
+          item.style.display = 'block'
+          item.style.marginTop = '5px'
+          item.style.clear = 'both' // Adiciona clear:both para forçar o posicionamento abaixo
+          item.textContent = (i + 1).toString()
+          document.body.appendChild(item)
+        }
+      }
+
+      document
+        .getElementById('submitBtn')
+        .addEventListener('click', enviarNumero)
+    </script>
+  </body>
 </html>
