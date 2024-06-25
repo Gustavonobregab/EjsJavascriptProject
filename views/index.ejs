@@ -43,11 +43,13 @@
 
     <script>
       function enviarNumero() {
-        var quantidade = parseInt(document.getElementById('quantity').value)
-        var container = document.getElementById('retangulos-container')
+        const numberOfDivs = parseInt(document.getElementById('quantity').value)
+        const container = document.getElementById('retangulos-container')
 
-        for (var i = 0; i < quantidade; i++) {
-          var item = document.createElement('div')
+        container.innerHTML = ''
+
+        for (let i = 0; i < numberOfDivs; i++) {
+          const item = document.createElement('div')
           item.style.width = '500px'
           item.style.height = '50px'
           item.style.backgroundColor = 'blue'
@@ -55,7 +57,7 @@
 
           container.appendChild(item)
 
-          item.textContent = (i + 1).toString()
+          item.textContent = i + 1
         }
       }
 
